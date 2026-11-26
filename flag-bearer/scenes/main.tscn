@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://c2qex5cs6qnqm"]
+[gd_scene load_steps=12 format=3 uid="uid://c2qex5cs6qnqm"]
 
 [ext_resource type="PackedScene" uid="uid://b0y3ugccqmvln" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bitgpafi0sbt" path="res://scenes/enemies/slime.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://b4n80psp7u08u" path="res://sprites/atlas_floor-16x16.png" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dcfdvuclovhar" path="res://sprites/atlas_walls_high-16x32.png" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://ctmptkg47lubr" path="res://sprites/atlas_walls_low-16x16.png" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bitmhjyohnpl3" path="res://scenes/portal.tscn" id="6_tefeu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("3_tbgi4")
 0:0/0 = 0
 1:0/0 = 0
@@ -55,12 +56,12 @@ texture = ExtResource("3_tbgi4")
 5:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tefeu"]
-sources/0 = SubResource("TileSetAtlasSource_tbgi4")
+sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("4_tefeu")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.3381634, 3.4173164, 2.6978798, 3.057598, 2.6978798, 8, -2.5180225, 8)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
@@ -89,7 +90,7 @@ texture = ExtResource("4_tefeu")
 15:0/0 = 0
 16:0/0 = 0
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.87774, -8, 3.057598, -8, 3.057598, 8, -2.6978807, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -140,7 +141,7 @@ texture = ExtResource("4_tefeu")
 17:2/0 = 0
 18:2/0 = 0
 0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.87774, -8, 3.057598, -8, 3.057598, 8, -2.6978807, 8)
 1:3/0 = 0
 1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
@@ -308,7 +309,7 @@ texture = ExtResource("4_tefeu")
 22:7/0 = 0
 23:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("5_o6xl0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -409,32 +410,29 @@ texture = ExtResource("5_o6xl0")
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 4
 physics_layer_1/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_85g3d")
-sources/2 = SubResource("TileSetAtlasSource_choun")
+sources/1 = SubResource("TileSetAtlasSource_o6xl0")
+sources/2 = SubResource("TileSetAtlasSource_tipki")
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(176, 344)
-collision_layer = 8
-collision_mask = 8
+position = Vector2(271.00012, 384)
 
 [node name="Slime" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(781.00006, 170.00002)
-
-[node name="Slime2" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(947.00006, 296)
-
-[node name="Slime3" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(818, 440)
+position = Vector2(987, 268.00003)
 
 [node name="floors" type="TileMapLayer" parent="."]
 z_index = -1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAACAAIAAAABAAAAAAADAAIAAAADAAEAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAABAAEAAAAIAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAABAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAADAAEAAAACAAcAAAABAAEAAAADAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAAMAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAQAAAABAAAAAAAOAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAKAAQAAAADAAEAAAAJAAQAAAAAAAAAAAAIAAQAAAABAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAABAAEAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAABAAEAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAIAAAAJAAUAAAADAAEAAAAJAAYAAAABAAEAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAUAAAADAAEAAAAMAAYAAAABAAEAAAANAAUAAAABAAEAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAAHAAYAAAABAAAAAAAKAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAEAAEAAAABAAAAAAANAAYAAAABAAEAAAANAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="walls" type="TileMapLayer" parent="."]
+position = Vector2(73, 85)
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAACAAEAAQACAAcAAAADAAEAAQACAAcAAAAEAAEAAQACAAcAAAAFAAEAAQACAAcAAAAGAAEAAQACAAcAAAAHAAEAAQACAAcAAAAIAAEAAQACAAcAAAAJAAEAAQACAAcAAAAKAAEAAQACAAcAAAALAAEAAQACAAcAAAAMAAEAAQACAAcAAAANAAEAAQACAAcAAAAOAAEAAQACAAcAAAAPAAEAAQACAAcAAAAQAAEAAQADAAEAAAAQAAIAAQADAAEAAAAQAAMAAQADAAEAAAAQAAQAAQADAAEAAAAQAAUAAQADAAEAAAAQAAYAAQADAAEAAAAQAAcAAQADAAEAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAABAAMAAQABAAEAAAABAAQAAQABAAEAAAABAAYAAQABAAEAAAABAAcAAQABAAEAAAABAAgAAgAIAAMAAAAQAAgAAgALAAMAAAACAAgAAgAJAAMAAAADAAgAAgAJAAMAAAAEAAgAAgAJAAMAAAAFAAgAAgAJAAMAAAAGAAgAAgAJAAMAAAAHAAgAAgAJAAMAAAAIAAgAAgAJAAMAAAAJAAgAAgAJAAMAAAAKAAgAAgAJAAMAAAALAAgAAgAJAAMAAAAMAAgAAgAJAAMAAAANAAgAAgAJAAMAAAAOAAgAAgAJAAMAAAAPAAgAAgAJAAMAAAACAAkAAQACAAcAAAADAAkAAQACAAcAAAAEAAkAAQACAAcAAAABAAkAAQABAAcAAAAFAAkAAQACAAcAAAAGAAkAAQACAAcAAAAHAAkAAQACAAcAAAAIAAkAAQACAAcAAAAJAAkAAQACAAcAAAAKAAkAAQACAAcAAAALAAkAAQACAAcAAAAMAAkAAQACAAcAAAANAAkAAQACAAcAAAAOAAkAAQACAAcAAAAPAAkAAQACAAcAAAAQAAkAAQADAAcAAAABAAUAAQABAAEAAAACAAAAAQACAAUAAAADAAAAAQACAAUAAAAEAAAAAQACAAUAAAAFAAAAAQACAAUAAAAGAAAAAQACAAUAAAAHAAAAAQACAAUAAAAIAAAAAQACAAUAAAAJAAAAAQACAAUAAAAKAAAAAQACAAUAAAALAAAAAQACAAUAAAAMAAAAAQACAAUAAAANAAAAAQACAAUAAAAOAAAAAQACAAUAAAAPAAAAAQACAAUAAAABAAAAAQABAAMAAAABAP//AQABAAAAAAACAP//AQACAAYAAAADAP//AQACAAYAAAAEAP//AQACAAYAAAAFAP//AQACAAYAAAAGAP//AQACAAYAAAAHAP//AQACAAYAAAAIAP//AQACAAYAAAAJAP//AQACAAYAAAAKAP//AQACAAYAAAALAP//AQACAAYAAAAMAP//AQACAAYAAAANAP//AQACAAYAAAAOAP//AQACAAYAAAAPAP//AQACAAYAAAAQAP//AQADAAAAAAAQAAAAAQADAAEAAAA=")
 tile_set = SubResource("TileSet_ya4ey")
+
+[node name="Portal" parent="." instance=ExtResource("6_tefeu")]
+position = Vector2(992, 415)
+target_scene = "uid://hdl8wag4v7bq"
+portal_id = "out_one"
+target_portal_id = "in_map2"
